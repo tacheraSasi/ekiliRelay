@@ -7,7 +7,7 @@ class EkiliRelay
 
     public function __construct($apiUrl)
     {
-        $this->apiUrl = $apiUrl;
+        $this->apiUrl = "https://relay.ekilie.com/api/index.php";
     }
 
     public function sendEmail($to, $subject, $message, $headers = '')
