@@ -37,6 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($select && mysqli_num_rows($select) > 0) {
             # Retrieving the user ID from the query result
             $user_id = mysqli_fetch_array($select)['user'];
+
+            #add a request in the db
+            $select_num_req = mysqli_query($conn,"select requests from data where user = '$user_id'");
+            $num_req = mysqli_fetch_array($select_num_req)['requests'];
+            $num_req++;
             
             # Querying the user's information based on the unique ID
             $select_user = mysqli_query($conn, "SELECT name, email FROM users WHERE unique_id = '$user_id';");
